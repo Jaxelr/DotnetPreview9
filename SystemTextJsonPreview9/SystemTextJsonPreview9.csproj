@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.Text.Json" Version="9.0.0-rc.2.24473.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Using Include="SystemTextJsonPreview9" />
+		<Using Include="System.Text.Json"/>
+    </ItemGroup>
+
+    <!--<ItemGroup>
+        <RuntimeHostConfigurationOption Include="System.Text.Json.Serialization.RespectNullableAnnotationsDefault" Value="true" />
+    </ItemGroup>-->
+
+    <!--<ItemGroup>
+        <RuntimeHostConfigurationOption Include="System.Text.Json.Serialization.RespectRequiredConstructorParametersDefault" Value="true" />
+    </ItemGroup>-->
+
+</Project>
