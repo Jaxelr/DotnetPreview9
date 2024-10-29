@@ -2,7 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // 1.
 // New in dotnet 9, instead of swashbuckle, we can use Microsoft.AspNetCore.OpenApi
-builder.Services.AddOpenApi();
+builder.Services.AddOpenApi(); //We could use here schema transformers, if necessary.
 
 var app = builder.Build();
 
@@ -59,10 +59,6 @@ app.MapGet("/weatherforecastwitherror", () =>
 })
 .WithName("GetWeatherForecastWithError");
 
-//TODO:
-// Add logic for Keyed Services with DI
-// 
-
 app.Run();
 record Todo(int Id, string Title, bool IsCompleted);
 
@@ -71,19 +67,21 @@ internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }
 
-// Other enhancements
+// -- Other enhancements --
 
 // MapStaticAssets: this would replace UseStaticFiles.
 // Optimization of static assets delivery to include gzip + brotli out of the box, use eTags for cached hits from the client
 // It is also simpler than performing dynamic compression on the server, assets are compressed at build time, which incurs
 // no performance penalty at runtime. 
 
-// Improved Kestrel metrics
+// Improved Kestrel metrics:
 // Kestrel now includes metadata about why a connection failed with errors like:
 // tsl_handshake_failed
 // connection_reset
 // request_headers_timeout
 // max_request_body_size_exceeded
 
-// Opt-out of metrics on certain endpoints
+// Opt-out of metrics on certain endpoints:
 // app.MapHealthChecks("/health").DisableHttpMetrics();
+
+// Trust aspnetcore https development certificates on linux (Ubuntu/Fedora)

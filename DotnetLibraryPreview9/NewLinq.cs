@@ -2,6 +2,19 @@
 
 public class NewLinq
 {
+    void IterationIndex()
+    { 
+        var list = new List<string>() { "One", "Two", "Three" };
+
+        foreach(var (item, index) in list.Index())
+        {
+            Console.WriteLine($"Index: {index}, Item: {item}");
+        }
+        // Index: 0, Item : One
+        // Index: 1, Item: Two
+        // Index: 2, Item: Three
+    }
+
     void CountBy()
     {
         string sourceText = """
