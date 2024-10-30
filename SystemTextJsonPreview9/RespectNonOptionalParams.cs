@@ -4,14 +4,11 @@ public class RespectNonOptionalParams
 {
     record Person(string Name, int Age);
 
-    public RespectNonOptionalParams() { }
-
     public void DefaultBehavior()
     {
         var result = JsonSerializer.Deserialize<Person>("{}");
         Console.WriteLine(result);
         // Person { Name = , Age = 0 }
-
     }
 
     record MyPoco(string Required, string? Optional = null);

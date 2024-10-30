@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace DotnetLibraryPreview9;
 
@@ -10,6 +8,7 @@ public class CollectionLookupsWithSpans
     private static Dictionary<string, int> CountWords(ReadOnlySpan<char> input)
     {
         Dictionary<string, int> wordCounts = new(StringComparer.OrdinalIgnoreCase);
+
         Dictionary<string, int>.AlternateLookup<ReadOnlySpan<char>> spanLookup =
             wordCounts.GetAlternateLookup<ReadOnlySpan<char>>();
 

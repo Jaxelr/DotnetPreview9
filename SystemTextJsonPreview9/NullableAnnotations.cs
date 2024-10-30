@@ -9,7 +9,6 @@ public class NullableAnnotations
 
     public void SerializePoco()
     {
-
         MyPoco invalidValue = new(Name: null!);
         JsonSerializer.Serialize(invalidValue, options);
 

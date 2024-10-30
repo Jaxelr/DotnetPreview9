@@ -15,6 +15,6 @@ public class CustomizeEnums
     public CustomizeEnums()
     {
         var text = JsonSerializer.Serialize(MyEnum.Value1 | MyEnum.Value2); 
-        Console.WriteLine(text);
+        Console.WriteLine(text); // "Value1, Custom enum value"
     }
 }

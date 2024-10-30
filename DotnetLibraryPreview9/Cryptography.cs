@@ -6,8 +6,6 @@ namespace DotnetLibraryPreview9
     {
         void HashAndProcessData(HashAlgorithmName hashAlgorithmName, byte[] data)
         {
-            byte[] hash = CryptographicOperations.HashData(hashAlgorithmName, data);
-
             //To avoid having to do this:
             switch (hashAlgorithmName.Name)
             {
@@ -21,6 +19,9 @@ namespace DotnetLibraryPreview9
                 default:
                     throw new NotSupportedException();
             }
+
+            //You can use this:
+            byte[] hash = CryptographicOperations.HashData(hashAlgorithmName, data);
         }
 
         //KMAC is implemented in .NET 9 as specified by NIST SP 800-185

@@ -4,7 +4,7 @@ public class FromTheEndOperator
 {
     public FromTheEndOperator()
     {
-        //From the End Operator
+        //From the End Operator now allowed in object initializers
         var test = new Test
         {
             Numbers =

@@ -2,12 +2,9 @@
 using System.Text.Json.Schema;
 using System.Text.Json.Serialization;
 
-var a = new CustomizeEnums();
-
 JsonSerializerOptions options = JsonSerializerOptions.Default;
 JsonNode schema = options.GetJsonSchemaAsNode(typeof(Person));
-Console.WriteLine(schema.ToString());
-
+//Console.WriteLine(schema.ToString());
 
 //Control the output of your jsonschema exporter by modifying the json serializer options
 JsonSerializerOptions options2 = new(JsonSerializerOptions.Default)
@@ -15,7 +12,6 @@ JsonSerializerOptions options2 = new(JsonSerializerOptions.Default)
     PropertyNamingPolicy = JsonNamingPolicy.KebabCaseUpper,
     NumberHandling = JsonNumberHandling.WriteAsString,
     UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow,
-    
 };
 
 schema = options2.GetJsonSchemaAsNode(typeof(Person));

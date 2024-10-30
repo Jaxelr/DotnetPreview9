@@ -45,12 +45,15 @@ public class NewHybridCache(HybridCache cache)
         return $"Cache entry {name}-{id} removed";
     }
 
-    // We can enhance the performance of our serialization to the secondary cache, by marking immutable and sealed the class
-    // This will ensure that the serialization is optimized.
+    // We can enhance the performance of our deserialization to the secondary cache, by marking immutable and sealed the class
+    // This will ensure that the deserialization is optimized.
     [ImmutableObject(true)]
     public sealed class Poco
     {
         public int Key { get; set; }
         public string? Value { get; set; }
     }
+
+    // Want to go even deeper into the rabbit hole? Search for IBufferDistributedCache, the benchmarks are insane and with 0 allocations from byte[]
+    // See the API Proposal here: https://github.com/dotnet/aspnetcore/issues/54647 
 }

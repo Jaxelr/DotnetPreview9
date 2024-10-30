@@ -19,6 +19,9 @@ public class GuidVersion7
         Console.WriteLine();
         for (int i = 0; i < 5; i++)
         {
+            // This new Guid most of the data is still random,
+            // but some of it is reserved for data based on a timestamp,
+            // which enables these values to have a natural sort order.
             var guid = Guid.CreateVersion7();
 
             Console.WriteLine($"V{guid.Version}: {guid}");

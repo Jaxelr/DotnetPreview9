@@ -38,5 +38,13 @@ public class RefStructs
     //It can be used as a generic type
     class Foo<T> where T : allows ref struct
     {
+
+    }
+    class Bar<T> { }
+
+    class Example<T> where T : allows ref struct
+    {
+        private Foo<T> _foo;
+        // private Bar<T> bar; Not Allowed
     }
 }
